@@ -1,0 +1,30 @@
+from flask import Flask, Response
+
+app = Flask(__name__)
+
+data = '''{
+  "A": {
+    "steps": ["L3", "L4", "L5"],
+    "seconds": 43
+  },
+  "B": {
+    "steps": ["L1", "L2", "L3", "L4", "L5"],
+    "seconds": 88
+  },
+  "C": {
+    "steps": [],
+    "seconds": 0
+  },
+  "D": {
+    "steps": [],
+    "seconds": 0
+  },
+  "E": {
+    "steps": ["L4", "L5"],
+    "seconds": 43
+  }
+}'''
+
+@app.route("/")
+def answer():
+    return Response(data, mimetype="application/json")
